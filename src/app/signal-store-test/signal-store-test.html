@@ -6,7 +6,8 @@
     <ul>
         @for (p of appStore.data(); track p.id) {
             <li>
-                <strong>#{{ p.id }}</strong> — {{ p.title }} — {{ p.body }}
+                <strong>#{{ p.id }}</strong> — {{ p.title }}
+                <button (click)="postDetails(p.id)">Go to details</button>
             </li>
         }
     </ul>

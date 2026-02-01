@@ -11,8 +11,12 @@ export class ApiService {
     private readonly httpClient = inject(HttpClient);
     private readonly API_URL = 'https://jsonplaceholder.typicode.com';
 
-    getPosts(): Observable<Post[]> {
+    fetchPosts(): Observable<Post[]> {
         return this.httpClient.get<Post[]>(`${this.API_URL}/posts`);
     }
 
+    fetchPostById(postId: number): Observable<Post> {
+        return this.httpClient.get<Post>(`${this.API_URL}/posts/${postId}`);
     }
+
+}
