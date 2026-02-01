@@ -1,0 +1,10 @@
+.layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+mat-sidenav-container {
+  flex: 1;
+  background-color: white;
+}

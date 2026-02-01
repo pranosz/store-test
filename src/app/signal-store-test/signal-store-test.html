@@ -1,0 +1,13 @@
+@if(appStore.loading()) {
+    <div>Loading...</div>
+} @else if (appStore.error()) {
+    <div>Error loading posts.</div>
+} @else {
+    <ul>
+        @for (p of appStore.data(); track p.id) {
+            <li>
+                <strong>#{{ p.id }}</strong> — {{ p.title }} — {{ p.body }}
+            </li>
+        }
+    </ul>
+}

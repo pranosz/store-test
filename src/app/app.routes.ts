@@ -7,6 +7,6 @@ export const routes: Routes = [
     },
         {
         path: '**',
-        loadComponent: () => import('./signal-test/signal-test').then(m => m.SignalTest)
+        loadComponent: () => import('./signal-store-test/signal-store-test').then(m => m.SignalStoreTest)
     }
 ];
