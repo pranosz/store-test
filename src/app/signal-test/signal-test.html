@@ -1,0 +1,33 @@
+
+<section>
+	<h3>Filter</h3>
+	@if (filter()) {
+		<div>
+			<strong>Query:</strong> {{ filter().query }}<br>
+			<strong>Type:</strong> {{ filter().type }}
+		</div>
+	}
+
+	<h3>Favorite product</h3>
+	@if (state().favoriteProductId !== null) {
+		<div>
+			<span>Favorite product id: {{ state().favoriteProductId }}</span>
+		</div>
+	} @else {
+		<span>No favorite product selected</span>
+	}
+
+	<h3>Products</h3>
+	@if (products()!.length > 0) {
+		<ul>
+			@for (p of products(); track p.id) {
+				<li>
+					<strong>#{{ p.id }}</strong> — {{ p.name }} ({{ p.type }}) — {{ p.price }}
+				</li>
+			}
+		</ul>
+	} @else {
+		<span>No products available.</span>
+	}
+</section>
+<button mat-button (click)="updateSignal()">Update signal</button>
