@@ -59,6 +59,25 @@ export const AppStore = signalStore(
                 })
                 )
             ),
+            createPost: rxMethod<Post>(
+                pipe(
+                    tap(() => patchState(store, { loading: true })),
+                    switchMap(post => apiService.createPost(post)),
+                    tap({
+                    next: (createdPost) =>
+                        patchState(store, {
+                            data: [...store.data(), createdPost],
+                            count: store.data().length + 1,
+                            loading: false,
+                        }),
+                    error: (err) =>
+                        patchState(store, {
+                            error: err.message,
+                            loading: false,
+                        }),
+                    })
+                )
+            ),
             updatePostById(postId: number, updatedPost: Partial<Post>) {
                 patchState(store, {
                     data: store.data().map(post => post.id === postId ? { ...post, ...updatedPost } : post),

@@ -15,7 +15,6 @@ export class PostDetails implements OnInit {
   private readonly postId = signal<number>(0);
   readonly post = computed(() => {
     const id = this.postId();
-    console.log('Fetching post with ID:', id);
     const postSignal = this.appStore.getPostById(id);
     return postSignal();
   });

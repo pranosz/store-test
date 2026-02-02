@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { AppStore } from './signal-store/signal-store';
 import { Router } from '@angular/router';
 
@@ -9,15 +9,15 @@ import { Router } from '@angular/router';
   styleUrl: './signal-store-test.scss',
   
 })
-export class SignalStoreTest implements OnInit {
+export class SignalStoreTest {
   readonly appStore = inject(AppStore);
   private readonly route = inject(Router);
 
-  ngOnInit() {
-   // this.appStore.loadPosts();
+  postDetails(postId: number): void {
+    this.route.navigate(['/posts', postId]);
   }
 
-  postDetails(postId: number) {
-    this.route.navigate(['/posts', postId]);
+  goToCreate(): void {
+    this.route.navigate(['/posts', 'create']);
   }
 }

@@ -13,6 +13,10 @@ export const routes: Routes = [
         resolve: {postsLoaded: postsResolver}
     },
     {
+        path: 'posts/create',
+        loadComponent: () => import('./create-post/create-post').then(m => m.CreatePost)
+    },
+    {
         path: '**',
         loadComponent: () => import('./signal-store-test/signal-store-test').then(m => m.SignalStoreTest)
     }

@@ -19,4 +19,7 @@ export class ApiService {
         return this.httpClient.get<Post>(`${this.API_URL}/posts/${postId}`);
     }
 
+    createPost(post: Post): Observable<Post> {
+        return this.httpClient.post<Post>(`${this.API_URL}/posts`, post);
+    }
 }

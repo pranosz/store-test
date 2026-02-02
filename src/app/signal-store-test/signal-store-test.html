@@ -3,6 +3,9 @@
 } @else if (appStore.error()) {
     <div>Error loading posts.</div>
 } @else {
+    <div>
+        <button (click)="goToCreate()">Create post</button>
+    </div>
     <ul>
         @for (p of appStore.data(); track p.id) {
             <li>
