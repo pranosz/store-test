@@ -14,7 +14,7 @@ export class SignalStoreTest implements OnInit {
   private readonly route = inject(Router);
 
   ngOnInit() {
-    this.appStore.loadPosts();
+   // this.appStore.loadPosts();
   }
 
   postDetails(postId: number) {

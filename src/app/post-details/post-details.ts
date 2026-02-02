@@ -11,11 +11,12 @@ import { AppStore } from '../signal-store-test/signal-store/signal-store';
 })
 export class PostDetails implements OnInit {
   private readonly route = inject(ActivatedRoute);
-  readonly signalStore = inject(AppStore);
+  readonly appStore = inject(AppStore);
   private readonly postId = signal<number>(0);
   readonly post = computed(() => {
     const id = this.postId();
-    const postSignal = this.signalStore.getPostById(id);
+    console.log('Fetching post with ID:', id);
+    const postSignal = this.appStore.getPostById(id);
     return postSignal();
   });
 
