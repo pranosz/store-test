@@ -8,16 +8,17 @@ export const routes: Routes = [
         resolve: {postsLoaded: postsResolver}
     },
     {
+        path: 'posts/create',
+        loadComponent: () => import('./create-post/create-post').then(m => m.CreatePost)
+    },
+    {
         path: 'posts/:id',
         loadComponent: () => import('./post-details/post-details').then(m => m.PostDetails),
         resolve: {postsLoaded: postsResolver}
     },
     {
-        path: 'posts/create',
-        loadComponent: () => import('./create-post/create-post').then(m => m.CreatePost)
-    },
-    {
         path: '**',
-        loadComponent: () => import('./signal-store-test/signal-store-test').then(m => m.SignalStoreTest)
+        loadComponent: () => import('./signal-store-test/signal-store-test').then(m => m.SignalStoreTest),
+        resolve: {postsLoaded: postsResolver}
     }
 ];

@@ -1,22 +1,54 @@
-<form [formGroup]="postForm" (ngSubmit)="onSubmit()" class="create-post-form">
-  <div>
-    <label for="title">Title</label>
-    <input id="title" type="text" formControlName="title" />
-    <div *ngIf="postForm.get('title')?.invalid && (postForm.get('title')?.touched || postForm.get('title')?.dirty)">
-      <small *ngIf="postForm.get('title')?.errors?.['required']">Title is required.</small>
-      <small *ngIf="postForm.get('title')?.errors?.['maxlength']">Title must be at most 100 characters.</small>
+@if(appStore.loading()) {
+    <div>Loading...</div>
+} @else if (appStore.error()) {
+    <div>Error loading posts.</div>
+} @else {
+  <form
+    [formGroup]="postForm"
+    (ngSubmit)="onSubmit()"
+    class="create-post-form"
+  >
+
+    <div class="form-column">
+      <!-- TITLE -->
+      <mat-form-field appearance="outline" class="half-width">
+        <mat-label>Title</mat-label>
+        <input matInput formControlName="title" maxlength="100" />
+
+        @if (postForm.get('title')?.hasError('required')) {
+          <mat-error>Title is required</mat-error>
+        }
+
+        @if (postForm.get('title')?.hasError('maxlength')) {
+          <mat-error>Max 100 characters</mat-error>
+        }
+      </mat-form-field>
+
+      <!-- BODY -->
+      <mat-form-field appearance="outline" class="half-width">
+        <mat-label>Body</mat-label>
+        <textarea matInput rows="6" formControlName="body"></textarea>
+
+        @if (postForm.get('body')?.hasError('required')) {
+          <mat-error>Body is required</mat-error>
+        }
+      </mat-form-field>
+
+      <!-- BUTTON -->
+      <div class="button-row">
+        <button
+          mat-raised-button
+          color="primary"
+          type="submit"
+          [disabled]="postForm.invalid"
+        >
+          Create
+        </button>
+      </div>
     </div>
-  </div>
 
-  <div>
-    <label for="body">Body</label>
-    <textarea id="body" rows="6" formControlName="body"></textarea>
-    <div *ngIf="postForm.get('body')?.invalid && (postForm.get('body')?.touched || postForm.get('body')?.dirty)">
-      <small *ngIf="postForm.get('body')?.errors?.['required']">Body is required.</small>
-    </div>
-  </div>
+  </form>
 
-  <button type="submit" [disabled]="postForm.invalid">Create Post</button>
-</form>
 
-<pre>{{ postForm.value | json }}</pre>
+  <pre>{{ postForm.value | json }}</pre>
+}
