@@ -9,7 +9,7 @@ import { Post } from "../models/post.dto";
 export class ApiService {
 
     private readonly httpClient = inject(HttpClient);
-    private readonly API_URL = 'https://jsonplaceholder.typicode.com';
+    private readonly API_URL = 'http://localhost:3000';
 
     fetchPosts(): Observable<Post[]> {
         return this.httpClient.get<Post[]>(`${this.API_URL}/posts`);
