@@ -2,6 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { inject, Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { Post } from "../models/post.dto";
+import { environment } from "../../environments/local";
 
 @Injectable({
   providedIn: 'root',
@@ -9,7 +10,7 @@ import { Post } from "../models/post.dto";
 export class ApiService {
 
     private readonly httpClient = inject(HttpClient);
-    private readonly API_URL = 'http://localhost:3000';
+    private readonly API_URL = environment.apiUrl;
 
     fetchPosts(): Observable<Post[]> {
         return this.httpClient.get<Post[]>(`${this.API_URL}/posts`);
