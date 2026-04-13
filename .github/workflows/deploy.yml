@@ -24,6 +24,9 @@ jobs:
       - name: Build Angular
         run: npm run build -- --configuration production
 
+      - name: Debug secrets
+        run: echo "Secrets loaded"
+
       - name: Deploy to S3
         uses: jakejarvis/s3-sync-action@master
         with:
