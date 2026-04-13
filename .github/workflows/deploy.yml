@@ -24,9 +24,6 @@ jobs:
       - name: Build Angular
         run: npm run build -- --configuration production
 
-      - name: Debug secrets
-        run: echo "Secrets loaded"
-
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
