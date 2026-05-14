@@ -57,3 +57,100 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+
+Po kliknięciu w “Production” lub “Non-Production” lub "New Feature Request":
+pokazuj nowoczesny formularz.
+
+Form layout:
+
+centered card container
+nowoczesny enterprise form
+labels nad inputami
+spacing zgodny z TailwindCSS
+rounded inputs
+subtle borders
+
+Pola formularza dla Production i Non-Production:
+
+Summary
+standard text input
+Business Application ID
+text input
+App Repository Link
+text input z placeholderem Git repository URL
+Issue Category
+multi-select dropdown
+opcje:
+Build & Deploy
+Runtime Availability
+Hosting Platform
+multi-select dropdown
+opcje:
+JDP
+DHP
+KubOps
+Description
+duży textarea
+placeholder:
+“Provide detailed information about the issue, impact and current behavior.”
+Severity
+single select dropdown
+opcje:
+Critical
+Major
+Moderate
+High
+
+Na dole formularza:
+
+secondary button:
+“Cancel”
+primary button:
+“Submit Incident”
+
+Production form:
+
+czerwone akcenty,
+bardziej critical enterprise feeling.
+
+Non-production form:
+
+amber/orange akcenty,
+softer support feeling.
+
+Po kliknięciu “Request Feature”:
+pokazuj oddzielny formularz.
+
+Pola formularza “Request Feature”:
+
+Summary
+text input
+Business Application ID
+text input
+Description
+duży textarea
+helper text:
+“Please describe what you need and why you need it.”
+
+Na dole:
+
+secondary button:
+“Cancel”
+primary button:
+“Submit Request”
+
+Styl wizualny:
+
+inspirowany:
+Linear,
+Atlassian,
+Vercel dashboard,
+enterprise internal tooling,
+modern admin systems
+subtle gradients
+soft shadows
+clean typography
+lucide-react icons
+TailwindCSS aesthetics
+Radix UI design patterns
